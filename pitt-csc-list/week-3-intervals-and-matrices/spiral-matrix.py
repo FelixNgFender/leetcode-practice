@@ -1,6 +1,7 @@
 def spiralOrder(matrix):
     def isInBounds(y, x):
         return y >= 0 and y <= m - 1 and x >= 0 and x <= n - 1
+
     if len(matrix) == 0:
         return []
     m = len(matrix)
@@ -16,7 +17,16 @@ def spiralOrder(matrix):
     while len(res) < m * n:
         res.append(matrix[y][x])
         visited[y][x] = True
-        if (not isInBounds(y + dy[direction], x + dx[direction])) or visited[y + dy[direction]][x + dx[direction]]:
+        if (not isInBounds(y + dy[direction], x + dx[direction])) or visited[
+            y + dy[direction]
+        ][x + dx[direction]]:
             direction = (direction + 1) % len(dx)
         y, x = y + dy[direction], x + dx[direction]
     return res
+
+
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+print(spiralOrder(matrix))
+
+matrix = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]
+print(spiralOrder(matrix))
