@@ -12,6 +12,7 @@ def isAnagram(s, t):
         wordCnt2[c] += 1
     return wordCnt1 == wordCnt2
 
+
 s = "anagram"
 t = "nagaram"
 print(isAnagram(s, t))
